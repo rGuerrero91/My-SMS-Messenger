@@ -14,7 +14,8 @@ class SendSms
                   .create(
                     body: body,
                     from: from_number,
-                    to: to
+                    to: to,
+                    status_callback: ENV['TWILIO_STATUS_CALLBACK']
                   )
 
         puts  "Message Sent"
