@@ -1,0 +1,6 @@
+<div class="history-card">
+  <h2>Message History ({{ messages.length }})</h2>
+  <div *ngFor="let message of messages">
+    <app-message-item [message]="message"></app-message-item>
+  </div>
+</div>
