@@ -35,4 +35,12 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
   include Mongoid::Timestamps
+
+  has_many :messages, dependent: :destroy
+
+  # devise is looking for a primary key that only exists on ActiveRecord, so we make our own.
+  # This is a workaround to make devise work with Mongoid.
+  def self.primary_key
+    :_id
+  end
 end
