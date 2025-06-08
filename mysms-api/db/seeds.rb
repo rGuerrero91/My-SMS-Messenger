@@ -8,15 +8,15 @@ require 'securerandom'
 
 shared_session_id = SecureRandom.uuid
 
-10.times do |i|
-  Message.create!(
-    body: "Message ##{i + 1}",
-    to: "+1555000#{100 + i}",
-    session_id: shared_session,
-    status: %w[pending delivered failed].sample,
-    twilio_sid: nil
-  )
-end
+# 10.times do |i|
+#   Message.create!(
+#     body: "Message ##{i + 1}",
+#     to: "+1555000#{100 + i}",
+#     session_id: shared_session,
+#     status: %w[pending delivered failed].sample,
+#     twilio_sid: nil
+#   )
+# end
 
 
 puts "Done seeding."
