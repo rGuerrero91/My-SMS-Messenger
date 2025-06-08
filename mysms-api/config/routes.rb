@@ -9,4 +9,8 @@ devise_for :users,
 
   # we are only creating and fetching all messages for now.
   resources :messages, only: [:create, :index]
+
+  #status call back webhook endpoint for twilio
+  post '/twilio/status_callback', to: 'twilio#status_callback'
+
 end
