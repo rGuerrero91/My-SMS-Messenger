@@ -3,6 +3,21 @@ class TwilioController < ApplicationController
 
   def status_callback
     Rails.logger.info("Twilio status callback received: #{params.inspect}")
+    message_sid = params["MessageSid"]
+    new_status  = params["MessageStatus"] || params["SmsStatus"]
+
+    if message_sid && new_status
+      message = Message.find_by(twilio_sid: message_sid)
+      if message
+        message.update(status: new_status)
+        Rails.logger.info("Updated message #{message.id} to status: #{new_status}")
+      else
+        Rails.logger.warn("No message found with SID: #{message_sid}")
+      end
+    else
+      Rails.logger.warn("Missing MessageSid or status in callback")
+    end
+    
     head :ok
   end
 
