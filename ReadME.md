@@ -28,21 +28,11 @@ MySMS Messenger is a full stack web app that allows users to send and view SMS m
 
 #### Backend
 
-1. `cd backend`
+1. `cd mysms-api`
 2. `bundle install`
 3. Configure MongoDB and Twilio credentials in environment variables
 4. `rails db:setup`
 5. `rails server`
-
-#### Frontend
-
-1. `cd frontend`
-2. `npm install`
-3. `ng serve`
-
-### Deployment
-
-You can deploy the app to your own server or a cloud provider.
 
 ## License
 
