@@ -8,9 +8,11 @@ class MessagesController < ApplicationController
 
     def create
         message = Message.create(
-            content: params[:content],
             session_id: session[:id],
-            status: 'pending'
+            to: params[:to],
+            body: params[:body],
+            twilio_sid: params[:twilio_sid] || nil,
+            status: params[:status] || 'pending'
         )
         render json: message, status: :created
     end 
