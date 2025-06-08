@@ -2,7 +2,7 @@ class Users::SessionsController < Devise::SessionsController
   respond_to :json
 
   private
-
+  #devise would attempt to redirect to a view, which we don't have in API mode.
   def respond_with(resource, _opts = {})
     render json: {
       status: {code: 200, message: 'Logged in successfully.'},
