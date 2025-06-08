@@ -1,8 +1,9 @@
 class MessagesController < ApplicationController
-    before_action :assign_session_id
+    # before_action :assign_session_id
+    before_action :authenticate_user!
 
     def index
-        messages = Message.where(session_id: session[:id])
+        messages = Message.where(user_id: current_user.id)
         render json: messages
     end
 
@@ -10,7 +11,8 @@ class MessagesController < ApplicationController
         sms = SendSms.call(to: message_params[:to], body: message_params[:body])
 
         message = Message.create(
-            session_id: session[:id],
+            # session_id: session[:id],
+            user_id: current_user.id,
             to: message_params[:to],
             body: message_params[:body],
             twilio_sid: sms&.sid || nil,

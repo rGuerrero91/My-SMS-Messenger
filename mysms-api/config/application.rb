@@ -23,9 +23,6 @@ module MysmsApi
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 
-    # Please, add to the `ignore` list any other `lib` subdirectories that do
-    # not contain `.rb` files, or that should not be reloaded or eager loaded.
-    # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
     # Configuration for the application, engines, and railties goes here.
@@ -43,10 +40,11 @@ module MysmsApi
 
 
     # to enable cookies and sessions since I generated the application with `--api` flag.
-    config.middleware.use ActionDispatch::Cookies
+    # config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
       key: '_mysms_session',
       same_site: :lax, 
       secure: Rails.env.production?
+    config.middleware.use ActionDispatch::Flash
   end
 end
