@@ -17,6 +17,12 @@ class SendSms
                     to: to
                   )
 
-        puts message.body
+        puts  "Message Sent"
+
+        message
+
+    rescue Twilio::REST::RestError => e
+        puts "Unable to Send Message"
+        nil
     end
 end
