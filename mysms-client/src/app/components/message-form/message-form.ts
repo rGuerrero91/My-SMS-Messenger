@@ -16,7 +16,7 @@ export class MessageForm {
 
   constructor(private fb: FormBuilder, private messageService: MessageService) {
     this.messageForm = this.fb.group({
-      phoneNumber: ['+18884875593', Validators.required], // Default phone number from my twilio account
+      phoneNumber: ['+18777804236', Validators.required], // Default phone number for twilio virtual phone
       body: ['', [Validators.required, Validators.maxLength(250)]]
     });
   }
