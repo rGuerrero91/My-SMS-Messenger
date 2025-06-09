@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000';
+  // in a bit of a time crunch, gonna hardcode it for now so I can deploy and submit.
+  private apiUrl = 'https://my-sms-messenger-o9qu.onrender.com/';
 
   async login(email: string, password: string): Promise<void> {
     const response = await fetch(`${this.apiUrl}/users/sign_in`, {
