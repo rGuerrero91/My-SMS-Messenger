@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MessageItem } from '../message-item/message-item';
 import { CommonModule } from '@angular/common';
+import { MessageService } from '../../services/message-service';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-message-list',
@@ -8,13 +10,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './message-list.html',
   styleUrls: ['./message-list.css']
 })
-export class MessageList {
-  messages = [
-    // Example data
-    {
-      to: '999-888-7777',
-      body: 'Hi! This is a message.',
-      createdAt: new Date().toUTCString()
-    }
-  ];
+export class MessageList implements OnInit {
+  messages: any[] = [];
+
+  constructor(private messageService: MessageService) {}
+
+  async ngOnInit() {
+    await this.fetchMessages();
+  }
+
+  async fetchMessages() {
+    this.messages = await this.messageService.getMessages();
+  }
 }

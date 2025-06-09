@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MessageForm } from '../../components/message-form/message-form';
 import { MessageList } from '../../components/message-list/message-list';
 
@@ -6,7 +6,16 @@ import { MessageList } from '../../components/message-list/message-list';
   selector: 'app-messages-page',
   standalone: true,
   imports: [MessageForm, MessageList],
-  templateUrl: './messages-page.html',
-  styleUrls: ['./messages-page.css']
+  template: `
+    <h2>Messages</h2>
+    <app-message-form (messageSent)="reloadMessages()"></app-message-form>
+    <app-message-list #messageList></app-message-list>
+  `
 })
-export class MessagesPage {}
+export class MessagesPage {
+  @ViewChild('messageList') messageList!: MessageList;
+
+  reloadMessages() {
+    this.messageList.fetchMessages();
+  }
+}

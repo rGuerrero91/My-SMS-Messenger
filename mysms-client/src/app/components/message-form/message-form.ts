@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MessageService } from '../../services/message-service';
 
 @Component({
   selector: 'app-message-form',
@@ -10,18 +11,27 @@ import { CommonModule } from '@angular/common';
 })
 
 export class MessageForm {
+  @Output() messageSent = new EventEmitter<void>();
   messageForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private messageService: MessageService) {
     this.messageForm = this.fb.group({
       phoneNumber: ['', Validators.required],
       body: ['', [Validators.required, Validators.maxLength(250)]]
     });
   }
 
-  onSubmit(): void {
+  async onSubmit() {
     if (this.messageForm.valid) {
-      // Call service to send message
+      try {
+        const { phoneNumber, body } = this.messageForm.value;
+        await this.messageService.sendMessage(phoneNumber, body);
+        console.log('Message sent successfully');
+        this.messageForm.reset();
+        this.messageSent.emit();
+      } catch (err: any) {
+        console.error('Failed to send message', err.message);
+      }
     }
   }
 
