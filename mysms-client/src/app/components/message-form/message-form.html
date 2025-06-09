@@ -1,15 +1,15 @@
 <div class="form-card">
   <h2>New Message</h2>
   <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
-    <label>Phone Number</label>
+    <label>Phone Number</label><br/>
     <input formControlName="phoneNumber" type="text">
-
-    <label>Message</label>
+    <br>
+    <label>Message</label><br>
     <textarea formControlName="body" rows="4"></textarea>
     <div class="char-count">{{ messageForm.get('body')?.value?.length || 0 }}/250</div>
 
     <div class="actions">
-      <button type="button" (click)="onClear()">Clear</button>
+      <button type="button" (click)="onClear()" style="margin: 10;">Clear</button>
       <button type="submit">Submit</button>
     </div>
   </form>
