@@ -40,3 +40,4 @@ mysms-api/yarn-error.log
 
 # Ignore byebug history
 mysms-api/.byebug_history
+.vercel
