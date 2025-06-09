@@ -12,8 +12,10 @@ export class AuthService {
       },
       body: JSON.stringify({ user: { email, password } })
     });
-
+    console.log('Auth response:', response);
     const authHeader = response.headers.get('Authorization');
+
+    console.log('Auth header:', authHeader);
     if (authHeader) {
       localStorage.setItem('token', authHeader);
     }
@@ -43,11 +45,16 @@ export class AuthService {
     localStorage.removeItem('token');
   }
 
-  getToken(): string | null {
-    return localStorage.getItem('token');
-  }
+  getToken() {
+  const token = localStorage.getItem('token');
+  console.log('Retrieved token from localStorage:', token);
+  return token;
+}
 
-  isLoggedIn(): boolean {
-    return !!this.getToken();
-  }
+isLoggedIn(): boolean {
+  const token = this.getToken();
+  const loggedIn = !!token;
+  console.log('AuthService.isLoggedIn():', loggedIn);
+  return loggedIn;
+}
 }
