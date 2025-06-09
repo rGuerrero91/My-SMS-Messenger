@@ -1,0 +1,16 @@
+.messages-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.form-column, .list-column {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .messages-layout {
+    flex-direction: column;
+  }
+}
