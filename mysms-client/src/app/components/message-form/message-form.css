@@ -1,0 +1,37 @@
+:host {
+  display: flex;
+  padding: 1rem;
+  background: white;
+}
+
+input, textarea {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  width: 100%;
+}
+
+button {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.actions {
+  display: flex;
+  justify-content: space-between; 
+  margin-top: 1rem;
+}
+
+.actions button {
+  padding: 0.5rem 1rem;
+}
+
+
+button:hover {
+  background-color: #059669;
+}

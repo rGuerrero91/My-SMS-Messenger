@@ -1,16 +1,26 @@
 .messages-layout {
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
+  max-height: fit-content;
+  max-width: 100%;
+  gap: 1rem;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
-.form-column, .list-column {
+.list {
+  flex: 4;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1rem;
+  overflow-y: auto;
+  background: #c6d7e7fa;
+  max-height: 500px;
+}
+
+.form {
   flex: 1;
-}
-
-@media (max-width: 768px) {
-  .messages-layout {
-    flex-direction: column;
-  }
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1rem;
+  background: #fff;
 }

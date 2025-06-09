@@ -8,9 +8,16 @@ import { MessageList } from '../../components/message-list/message-list';
   imports: [MessageForm, MessageList],
   template: `
     <h2>Messages</h2>
+    <div class="messages-layout">
+    <div class="form">
     <app-message-form (messageSent)="reloadMessages()"></app-message-form>
+    </div>
+    <div class="list">
     <app-message-list #messageList></app-message-list>
-  `
+    </div>
+</div>
+  `,
+  styleUrls: ['./messages-page.css'],
 })
 export class MessagesPage {
   @ViewChild('messageList') messageList!: MessageList;
