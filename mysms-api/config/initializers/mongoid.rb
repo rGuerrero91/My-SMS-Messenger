@@ -15,6 +15,7 @@ Mongoid.configure do
   # Note that the settings in config/mongoid.yml always take precedence,
   # whatever else is set here.
 end
+Rails.logger.info "Mongoid connected to: #{Mongoid::Clients.default.database.name}" if Mongoid::Clients.default
  
 # Enable Mongo driver query cache for Rack
 # Rails.application.config.middleware.use(Mongo::QueryCache::Middleware)
