@@ -112,18 +112,14 @@ Example:
 `TWILIO_ACCOUNT_SID`: Twilio Account SID
 `TWILIO_AUTH_TOKEN`: Twilio Auth Token
 `TWILIO_FROM_NUMBER`: Your Twilio phone number
-`DEVISE_JWT_SECRET_KEY`'="b2b1392dba4a6560fca7bb002e36b3a32a10bc72ef9a4a71f9bdded9e7efad56ad3df991c41fe9fed41daa8f6e75a0fa305b8ae83eab44ff3052b6559fdca5d0" (not for production!!!!)
+`DEVISE_JWT_SECRET_KEY`'="b2b1392dba4a6560fca7bb002e36b3a32a10bc72ef9a4a71f9bdded9e7efad56ad3df991c41fe9fed41daa8f6e75a0fa305b8ae83eab44ff3052b6559fdca5d0" **(not for production!!!!)**
+
 `TWILIO_STATUS_CALLBACK`: Full URL to your callback endpoint 
-`example`: start a tunnel with ngrok to expose the local server and insert the uri before "/twilio/status_callback"
+## start a tunnel with ngrok to expose the local server and insert the uri before "/twilio/status_callback"
+`example`: 
 TWILIO_STATUS_CALLBACK='https://c668-146-70-186-126.ngrok-free.app/twilio/status_callback'
 
-TWILIO_ACCOUNT_SID='AC60988eb69cb1ac24c9f910b7f6e719e2'
-TWILIO_AUTH_TOKEN='a523f3f884c1987be3206ada5a910fdc'
-TWILIO_FROM_NUMBER="+18884875593"
 
-## start a tunnel with ngrok to expose the local server and insert the uri before "/twilio/status_callback"
-TWILIO_STATUS_CALLBACK='https://my-sms-messenger-o9qu.onrender.com/twilio/status_callback'
-DEVISE_JWT_SECRET_KEY="b2b1392dba4a6560fca7bb002e36b3a32a10bc72ef9a4a71f9bdded9e7efad56ad3df991c41fe9fed41daa8f6e75a0fa305b8ae83eab44ff3052b6559fdca5d0"
 ## Notes
 
 Devise is modified for Mongoid by overriding primary_key to support _id.
