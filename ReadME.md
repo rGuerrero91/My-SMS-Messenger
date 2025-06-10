@@ -17,9 +17,9 @@ Frontend: `/mysms-client`
 ## Features
 
 - Send SMS messages via Twilio
-- View previously sent messages (per session or user)
+- View previously sent messages
 - Messages stored in MongoDB
-- User authentication (login/logout)
+- User authentication
 ## Getting Started
 
 ### Prerequisites
