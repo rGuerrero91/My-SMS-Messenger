@@ -4,7 +4,7 @@ MySMS Messenger is a monorepo for a web app that allows users to send and view S
 
 To demo the frontend, visit https://my-sms-messenger.vercel.app/
 
-Backend: `/mysms-api` 
+Backend: `/mysms-api`
 Frontend: `/mysms-client`
 
 ## Tech Stack
