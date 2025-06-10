@@ -4,7 +4,7 @@ MySMS Messenger is a full stack web app that allows users to send and view SMS m
 
 ## Tech Stack
 
-- **Frontend:** Angular (latest stable)
+- **Frontend:** Angular
 - **Backend:** Ruby on Rails
 - **Database:** MongoDB
 - **SMS Provider:** Twilio API
