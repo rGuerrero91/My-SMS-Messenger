@@ -27,6 +27,27 @@ export class AuthService {
     }
   }
 
+  async logout(): Promise<void> {
+    const token = localStorage.getItem('token');
+    localStorage.removeItem('token')
+
+    if (!token) return;
+
+    const response = await fetch(`${this.apiUrl}/users/sign_out`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': token
+      }
+    });
+
+    localStorage.removeItem('token');
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error?.message || 'Logout failed');
+    }
+  }
+  
   async signup(email: string, password: string): Promise<void> {
     const response = await fetch(`${this.apiUrl}/users`, {
       method: 'POST',
@@ -42,20 +63,17 @@ export class AuthService {
     }
   }
 
-  logout(): void {
-    localStorage.removeItem('token');
-  }
 
   getToken() {
   const token = localStorage.getItem('token');
   console.log('Retrieved token from localStorage:', token);
   return token;
-}
+  }
 
-isLoggedIn(): boolean {
-  const token = this.getToken();
-  const loggedIn = !!token;
-  console.log('AuthService.isLoggedIn():', loggedIn);
-  return loggedIn;
-}
+  isLoggedIn(): boolean {
+    const token = this.getToken();
+    const loggedIn = !!token;
+    console.log('AuthService.isLoggedIn():', loggedIn);
+    return loggedIn;
+  }
 }

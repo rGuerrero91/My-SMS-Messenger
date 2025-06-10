@@ -1,8 +1,15 @@
 <div class="app-container">
   <nav>
-    <a routerLink="/login">Login</a> | 
-    <a routerLink="/signup">Signup</a> | 
-    <a routerLink="/messages">Messages</a>
+    <ng-container *ngIf="!authService.isLoggedIn(); else loggedIn">
+      <a routerLink="/login">Login</a> | 
+      <a routerLink="/signup">Signup</a>
+    </ng-container>
+
+    <ng-template #loggedIn>
+      <a routerLink="/messages">Messages</a> |
+      <a href="#" (click)="logout()">Logout</a>
+    </ng-template>
   </nav>
-<router-outlet></router-outlet>
+
+  <router-outlet></router-outlet>
 </div>
